@@ -1,15 +1,17 @@
 package com.hzh.moneyrecord.controller;
 
 
+import com.alibaba.fastjson.JSON;
 import com.hzh.moneyrecord.enmus.ConstantAttribute;
 import com.hzh.moneyrecord.enmus.Status;
 import com.hzh.moneyrecord.entity.Result;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import com.hzh.moneyrecord.service.IConsumerRecordService;
+import com.hzh.moneyrecord.vo.ConsumerRecordVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * <p>
@@ -23,12 +25,21 @@ import java.util.HashMap;
 @RequestMapping("/record")
 public class ConsumerRecordController extends BaseController {
 
+    @Autowired
+    private IConsumerRecordService consumerRecordService;
 
     @RequestMapping(value = "/test",method = RequestMethod.GET)
     public Result testHttp(){
-        HashMap<String, Object> result = new HashMap<>(12);
+        Map<String, Object> result = new HashMap<>(12);
         result.put(ConstantAttribute.STATUS, Status.SUCCESS);
         result.put(ConstantAttribute.DATA_LIST,"testResult");
+        return returnDataList(result);
+    }
+
+    @RequestMapping(value = "/put",method = RequestMethod.POST)
+    public Result putRecord(@RequestBody ConsumerRecordVO recordVO){
+        logInfo("put a consumer record, request body : "+ JSON.toJSONString(recordVO));
+        Map<String,Object> result = consumerRecordService.putRecord(recordVO);
         return returnDataList(result);
     }
 }

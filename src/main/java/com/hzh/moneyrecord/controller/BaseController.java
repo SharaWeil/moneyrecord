@@ -3,6 +3,7 @@ package com.hzh.moneyrecord.controller;
 import com.hzh.moneyrecord.enmus.ConstantAttribute;
 import com.hzh.moneyrecord.enmus.Status;
 import com.hzh.moneyrecord.entity.Result;
+import com.hzh.moneyrecord.util.BaseLogging;
 import org.springframework.util.StringUtils;
 
 import java.util.Map;
@@ -12,7 +13,7 @@ import java.util.Map;
  * @ClassName BaseController.java
  * @createTime 2022年02月09日 13:36:00
  */
-public class BaseController {
+public class BaseController extends BaseLogging {
     /**
      * return data list
      *

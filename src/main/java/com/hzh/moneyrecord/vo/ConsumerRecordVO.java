@@ -1,23 +1,22 @@
-package com.hzh.moneyrecord.entity;
+package com.hzh.moneyrecord.vo;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.time.LocalDateTime;
 
 /**
- * <p>
- * 
- * </p>
- *
- * @author jobob
- * @since 2022-02-09
+ * @author hzh
+ * @ClassName TestVO.java
+ * @createTime 2022年02月08日 18:22:00
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
 @ToString
-@Builder
-public class ConsumerRecord{
+@NoArgsConstructor
+public class ConsumerRecordVO {
 
     private static final long serialVersionUID = 1L;
 
@@ -45,8 +44,4 @@ public class ConsumerRecord{
      * 通过那种app消费，枚举类型
      */
     private String consumerApp;
-
-    private LocalDateTime createTime;
-
-
 }

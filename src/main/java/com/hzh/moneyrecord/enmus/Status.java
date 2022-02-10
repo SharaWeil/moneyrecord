@@ -8,8 +8,8 @@ package com.hzh.moneyrecord.enmus;
 public enum Status {
     SUCCESS(200, "成功"),
     ERROR(400,"失败");
-    private int code;
-    private String cnMsg;
+    private final int code;
+    private final String cnMsg;
     Status(int code, String cnMsg) {
         this.code = code;
         this.cnMsg = cnMsg;

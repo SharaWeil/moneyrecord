@@ -2,6 +2,9 @@ package com.hzh.moneyrecord.service;
 
 import com.hzh.moneyrecord.entity.ConsumerRecord;
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.hzh.moneyrecord.vo.ConsumerRecordVO;
+
+import java.util.Map;
 
 /**
  * <p>
@@ -13,4 +16,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
  */
 public interface IConsumerRecordService extends IService<ConsumerRecord> {
 
+    Map<String, Object> putRecord(ConsumerRecordVO recordVO);
 }
